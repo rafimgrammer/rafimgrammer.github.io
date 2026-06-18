@@ -1,0 +1,338 @@
+/* Home.css */
+/* Home.css */
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  
+  /* 기존 100vh에서 헤더 높이만큼 뺍니다 */
+  height: calc(100vh - 70px); 
+  
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f6f8;
+}
+
+.card {
+  background: #ffffff; /* 깔끔한 화이트톤 */
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 카테고리 섹션 (트렌디한 Bento Grid 스타일 - 크기 다이어트) --- */
+.category-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-header {
+  margin-bottom: 10px; /* 간격 축소 (18px -> 10px) */
+}
+
+.category-header h2 {
+  margin: 0;
+  font-size: 1.15rem; /* 제목 크기 축소 */
+  color: #222;
+  font-weight: 800;
+}
+
+.category-header p {
+  margin: 3px 0 0 0;
+  font-size: 0.75rem; /* 설명 크기 축소 */
+  color: #888;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px; /* 버튼 사이 간격 축소 (15px -> 10px) */
+  height: 100%;
+}
+
+/* 각 카테고리 버튼 (카드) */
+.bento-item {
+  background-color: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 16px; /* 모서리 둥글기 살짝 축소 */
+  padding: 12px; /* 안쪽 여백 축소 (16px -> 12px) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center; /* 내용을 중앙으로 조금 더 모아줌 */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: left;
+}
+
+.bento-item:hover {
+  transform: translateY(-4px); /* 떠오르는 높이 살짝 축소 */
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* 동그란 아이콘 배경 */
+.icon-circle {
+  width: 32px; /* 아이콘 배경 크기 축소 (42px -> 32px) */
+  height: 32px; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem; /* 이모지 크기 축소 */
+  margin-bottom: 6px; /* 아이콘과 글자 사이 간격 축소 */
+  transition: transform 0.3s ease;
+}
+
+.bento-item:hover .icon-circle {
+  transform: scale(1.1);
+}
+
+/* 색상 유지 */
+.bento-item.general .icon-circle { background-color: #f1f3f5; }
+.bento-item.can .icon-circle { background-color: #e7f5ff; }
+.bento-item.plastic .icon-circle { background-color: #ebfbee; }
+.bento-item.paper .icon-circle { background-color: #fff4e6; }
+
+.bento-item.general:hover { border-color: #ced4da; }
+.bento-item.can:hover { border-color: #74c0fc; }
+.bento-item.plastic:hover { border-color: #69db7c; }
+.bento-item.paper:hover { border-color: #ffa94d; }
+
+.bento-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bento-title {
+  font-size: 0.9rem; /* 타이틀 글씨 축소 */
+  font-weight: 800;
+  color: #333;
+}
+
+.bento-desc {
+  font-size: 0.65rem; /* 설명 글씨 축소 */
+  color: #999;
+  font-weight: 500;
+}
+
+/* --- 업데이트 섹션 타임라인 스타일 --- */
+
+.update-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.update-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+/* 제목 옆 작은 배지 */
+.update-badge {
+  background-color: #ffeaea;
+  color: #ff4d4f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* 타임라인 전체 컨테이너 */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  /* 왼쪽 세로선 */
+  border-left: 2px solid #f0f0f0; 
+  margin-left: 10px;
+  padding-left: 20px;
+  overflow-y: auto; /* 내용이 길어지면 스크롤 */
+}
+
+/* 타임라인 개별 항목 */
+.timeline-item {
+  position: relative;
+}
+
+/* 타임라인 동그라미 (노드) */
+.timeline-dot {
+  position: absolute;
+  left: -27px; /* 세로선 위에 딱 맞게 위치 조정 */
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  border: 2px solid #ffffff; /* 흰색 테두리로 선과 분리되는 느낌 */
+}
+
+/* 가장 최근 업데이트 노드 강조 */
+.timeline-dot.new {
+  background-color: #27ae60; /* 산뜻한 초록색 포인트 */
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-meta .date {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* 종류별 태그 (추가, 개선, 오픈) */
+.tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.new-tag { background: #e6f7ff; color: #1890ff; }
+.improve-tag { background: #f6ffed; color: #52c41a; }
+.open-tag { background: #fffb8f; color: #faad14; }
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* --- 업데이트 섹션 분할 레이아웃 --- */
+
+.update-content-split {
+  display: flex;
+  gap: 20px;
+  height: 100%; /* 남은 공간 꽉 채우기 */
+  margin-top: 10px;
+}
+
+/* 왼쪽 타임라인 컨테이너 */
+.timeline-container {
+  flex: 5.5; /* 약 55% 영역 차지 */
+  overflow-y: auto; /* 내용이 길면 스크롤 */
+  padding-right: 10px;
+}
+
+/* 업데이트 헤더의 아래쪽 여백 줄이기 (25px -> 12px) */
+.update-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px; 
+}
+
+/* 오른쪽 미니 대시보드 컨테이너 간격 줄이기 */
+.update-side-panel {
+  flex: 4.5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 요소들 사이의 간격 축소 (12px -> 8px) */
+  border-left: 1px dashed #eaeaea;
+  padding-left: 15px; /* 왼쪽 여백 축소 */
+}
+
+/* 미니 통계 박스 안쪽 여백 줄이기 */
+.stat-box {
+  background-color: #f8f9fa;
+  padding: 10px; /* 안쪽 여백 축소 (15px -> 10px) */
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f0f0f0;
+}
+
+.stat-label {
+  font-size: 0.75rem; /* 라벨 글씨 축소 */
+  color: #888;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 1.3rem; /* 숫자 크기 축소 (1.6rem -> 1.3rem) */
+  font-weight: 800;
+  color: #27ae60;
+}
+
+.stat-value small {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 2px;
+  color: #555;
+}
+
+/* 제보하기 버튼 크기 축소 */
+.report-btn {
+  margin-top: auto; 
+  background-color: #ffffff;
+  border: 2px solid #27ae60;
+  color: #27ae60;
+  padding: 8px; /* 버튼 위아래 굵기 축소 (12px -> 8px) */
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem; /* 글씨 크기 축소 */
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.report-btn:hover {
+  background-color: #27ae60;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;       /* 컨테이너 너비를 부모에 딱 맞게 */
+    padding: 15px;     /* 좌우 여백 */
+    box-sizing: border-box; /* 💡 이게 핵심: 패딩을 너비에 포함시킴 */
+    margin: 0 auto;    /* 가운데 정렬 */
+    gap: 20px;
+    
+    /* 💡 가로 스크롤 방지 */
+    overflow-x: hidden; 
+  }
+
+  /* 모든 카드도 너비를 부모에 맞춤 */
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

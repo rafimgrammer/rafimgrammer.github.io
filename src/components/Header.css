@@ -1,0 +1,76 @@
+.main-header {
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* 좌우 패딩을 살짝 줄임 */
+  margin: 0 auto;
+  
+  /* [수정] 모바일에서는 꽉 차게, 데스크탑에서는 최대 크기 제한 */
+  width: 90%; 
+  max-width: 1200px;
+  
+  background-color: transparent; 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+/* [추가] 모바일 대응용 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+  .main-header {
+    width: 100%;       /* 95%가 아니라 100%로 잡고 */
+    padding: 10px 15px; /* 패딩으로 안쪽 여백을 줌 */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+    margin: 0;         /* 마진 제거 */
+  }
+
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 가로 스크롤 완전 차단 */
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 자식 요소(카드들)를 중앙으로 모음 */
+    width: 100%; 
+    padding: 10px;       /* 여백을 줄임 */
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  /* 로고나 메뉴 글씨가 모바일에서 너무 크면 작게 조절 */
+  .logo a { font-size: 1.2rem; }
+  nav a { margin-left: 15px; font-size: 0.9rem; }
+}
+
+/* --- 로고 영역 세련된 스타일링 --- */
+.logo a { 
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 이미지와 글자 사이의 기분 좋은 간격 */
+  font-weight: 800; 
+  font-size: 1.35rem; 
+  text-decoration: none; 
+  
+  /* 💡 짜치지 않는 고급스러운 한림 딥 블루 */
+  color: #1A4F9C; 
+  
+  /* 글자 자간을 살짝 좁히면 훨씬 트렌디하고 단단해 보입니다 */
+  letter-spacing: -0.5px; 
+}
+
+/* 로고 이미지 크기 조정 */
+.header-logo-img {
+  height: 28px; /* 너무 크지 않게 텍스트 높이와 딱 맞춤 */
+  width: auto;
+  object-fit: contain;
+}
+
+
+nav a { margin-left: 30px; text-decoration: none; color: #333; font-weight: 500; }
